@@ -1,0 +1,44 @@
+.container {
+  color: black;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 100%;
+  border-radius: 15px;
+}
+.container:hover {
+  box-shadow: 6px 5px 6px 6px rgb(0 0 0 / 9%);
+}
+.img {
+  max-width: 45%;
+  align-self: auto;
+}
+.text-container {
+  margin: 0.5rem;
+  width: 100%;
+}
+
+.title-country {
+  font-size: large;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+p {
+  font-weight: 400;
+}
+.detail-button {
+  padding: 0.5rem 0.9rem;
+  background-color: rgba(6, 18, 148, 0.4);
+  border: 2px outset lightslategrey;
+  border-radius: 5px;
+}
+.detail-button:hover {
+  color: white;
+  background-color: rgba(45, 71, 244, 0.6);
+  transition: all 500ms ease;
+}

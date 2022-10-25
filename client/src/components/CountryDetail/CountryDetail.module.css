@@ -1,0 +1,23 @@
+.detail-container {
+  background-color: white;
+  max-width: fit-content;
+  max-height: fit-content;
+  margin: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 9%);
+  flex-direction: column;
+  vertical-align: auto;
+}
+.detail-img {
+  max-width: 45%;
+  align-self: center;
+}
+.detail-text-container {
+  margin: 1rem;
+}
+.detail-title-country {
+  font-size: large;
+}

@@ -1,0 +1,12 @@
+.ul-container {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+.li-container {
+  margin: 0.2rem;
+}
+
+a {
+  text-decoration: none;
+}
