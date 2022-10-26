@@ -1,0 +1,14 @@
+button {
+  padding: 0.6rem 2rem;
+  border-radius: 20px;
+  color: white;
+  border: none;
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--secondary-color);
+}

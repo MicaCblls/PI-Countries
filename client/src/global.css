@@ -9,6 +9,7 @@ body,
 #root {
   width: 100%;
   height: 100%;
+  background-color: var(--background);
 }
 
 body {
@@ -22,4 +23,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --background: #f1f5f9;
+  --primary-color: #6366f1;
+  --secondary-color: #94a3b8;
+  --error-color: #c51b1b;
+  --text: #0f172a;
 }

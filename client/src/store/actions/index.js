@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const ERROR = "ERROR";
+export const CLEAN_ERROR = "CLEAN_ERROR";
 export const CLEANER = "CLEANER";
 export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 export const GET_COUNTRIES_BY_NAME = "GET_COUNTRIES_BY_NAME";
@@ -65,4 +66,8 @@ export const filterCountriesByActivity = (filter) => {
 };
 export const cleaner = () => {
   return { type: CLEANER };
+};
+
+export const cleanError = () => {
+  return { type: CLEAN_ERROR };
 };

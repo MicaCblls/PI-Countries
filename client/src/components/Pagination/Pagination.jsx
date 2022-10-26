@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pagination.css";
+import styles from "./Pagination.module.css";
 export default function Pagination({
   totalPages,
   paginate,
@@ -11,24 +11,24 @@ export default function Pagination({
     pageNumbers.push(i);
   }
   return (
-    <div className="container">
-      <ul className="ul-container">
+    <div className={styles.containerPagination}>
+      <ul className={styles.ulContainer}>
         {currentPage > 1 && (
-          <li className={`li-container`}>
+          <li className={styles.liContainer}>
             <a href="#" onClick={() => paginate(-1)}>
               Prev
             </a>
           </li>
         )}
         {pageNumbers.map((number) => (
-          <li key={number} className={`li-container`}>
+          <li key={number} className={styles.liContainer}>
             <a href="#" onClick={() => setCurrentPage(number)}>
               {number}
             </a>
           </li>
         ))}
         {currentPage !== pageNumbers.length && (
-          <li className={`li-container`}>
+          <li className={styles.liContainer}>
             <a href="#" onClick={() => paginate(1)}>
               Next
             </a>

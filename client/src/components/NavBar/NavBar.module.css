@@ -1,5 +1,4 @@
-.nav-container {
-  background-color: rgba(41, 92, 136, 0.3);
+.navContainer {
   padding: 1.5rem;
   display: flex;
   flex-direction: row;
@@ -7,8 +6,9 @@
   justify-content: center;
   width: 100%;
   max-width: 100%;
+  border-bottom: 1px solid /* #64748b */;
 }
-.search-bar {
+.searchBar {
   margin-right: 5rem;
 }
 
@@ -18,9 +18,9 @@
   padding: 0.5rem;
   border: 2px inset rgba(2, 51, 95, 0.3);
   border-radius: 20px;
-  background-color: rgb(58, 212, 247);
+  /* background-color: #eef2ff; */
 }
 
-.btn {
+.btnSearch {
   margin: 0 1.5rem;
 }

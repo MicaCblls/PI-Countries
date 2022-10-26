@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getContryById } from "../../store/actions";
-import "./CountryDetail.css";
+import styles from "./CountryDetail.module.css";
 
 export default function CountryDetail({ data }) {
   let params = useParams();
@@ -14,14 +14,14 @@ export default function CountryDetail({ data }) {
 
   return (
     <React.Fragment>
-      <div className="detail-container">
+      <div className={styles.detailContainer}>
         <img
           src={countryDetail.flag}
           alt={`Flag of ${countryDetail.name}`}
-          className="detail-img"
+          className={styles.detailImg}
         />
-        <div className="detail-text-container">
-          <h2 className="detail-title-country">{countryDetail.name}</h2>
+        <div className={styles.detailTextContainer}>
+          <h2 className={styles.detailTitleCountry}>{countryDetail.name}</h2>
           <p>Code: {countryDetail.id}</p>
           <p>Contient: {countryDetail.continent}</p>
           <p>Capital: {countryDetail.capital}</p>

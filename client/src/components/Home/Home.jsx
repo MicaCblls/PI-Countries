@@ -1,12 +1,12 @@
 import React from "react";
 import CountryCard from "../CountryCard/CountryCard";
-import "./Home.css";
+import styles from "./Home.module.css";
 
 export default function Home({ data }) {
   if (data.length) {
     return (
-      <div className="countries-container">
-        <div className="cards">
+      <div className={styles.countriesContainer}>
+        <div className={styles.cards}>
           {data.map((country) => {
             return (
               <CountryCard

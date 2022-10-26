@@ -13,15 +13,15 @@
   box-shadow: 6px 5px 6px 6px rgb(0 0 0 / 9%);
 }
 .img {
-  max-width: 45%;
+  max-width: 35%;
   align-self: auto;
 }
-.text-container {
+.textContainer {
   margin: 0.5rem;
   width: 100%;
 }
 
-.title-country {
+.titleCountry {
   font-size: large;
   max-width: 100%;
   white-space: nowrap;
@@ -31,14 +31,14 @@
 p {
   font-weight: 400;
 }
-.detail-button {
+/* .detailButton {
   padding: 0.5rem 0.9rem;
   background-color: rgba(6, 18, 148, 0.4);
   border: 2px outset lightslategrey;
   border-radius: 5px;
 }
-.detail-button:hover {
+.detailButton:hover {
   color: white;
   background-color: rgba(45, 71, 244, 0.6);
   transition: all 500ms ease;
-}
+} */

@@ -1,4 +1,4 @@
-.detail-container {
+.detailContainer {
   background-color: white;
   max-width: fit-content;
   max-height: fit-content;
@@ -11,13 +11,13 @@
   flex-direction: column;
   vertical-align: auto;
 }
-.detail-img {
+.detailImg {
   max-width: 45%;
   align-self: center;
 }
-.detail-text-container {
+.detailTextContainer {
   margin: 1rem;
 }
-.detail-title-country {
+.detailTitleCountry {
   font-size: large;
 }

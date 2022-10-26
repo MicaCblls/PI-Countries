@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   cleaner,
+  cleanError,
   filterCountriesByContinent,
   filterCountriesByActivity,
   getCountriesByName,
   getCountriesOrdered,
 } from "../../store/actions";
+import Button from "../Boton/Button";
 import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+import styles from "./NavBar.module.css";
 
 export default function NavBar({ data }) {
   const countriesBackUp = data.countriesBackUp;
@@ -26,6 +28,11 @@ export default function NavBar({ data }) {
 
   const handleChange = (e) => {
     e.preventDefault();
+
+    if (data.error) {
+      dispatch(cleanError());
+    }
+
     setName(e.target.value);
   };
   const handleOrder = (e) => {
@@ -56,18 +63,16 @@ export default function NavBar({ data }) {
 
   return (
     <React.Fragment>
-      <nav className="nav-container">
-        <form onSubmit={handleSubmit} className="search-bar">
+      <nav className={styles.navContainer}>
+        <form onSubmit={handleSubmit} className={styles.searchBar}>
           <input
             type="text"
             placeholder="Search countries by name..."
             value={name}
             onChange={handleChange}
-            className="search-input"
+            className={styles.searchInput}
           />
-          <button type="submit" className="btn search">
-            Search
-          </button>
+          <Button type="submit">Search</Button>
         </form>
 
         <select
@@ -75,7 +80,7 @@ export default function NavBar({ data }) {
           id="filterByContinent"
           value={filter}
           onChange={handleFilterByContinet}
-          className="filter"
+          className={styles.filter}
         >
           <option>-Filter by continent-</option>
           {continents.map((continent) => {
@@ -91,7 +96,7 @@ export default function NavBar({ data }) {
           id="filterByActivity"
           value={filter}
           onChange={handleFilterByActivity}
-          className="filter"
+          className={styles.filter}
         >
           <option>-Filter by activity-</option>
           {activities.map((activity) => {
@@ -107,7 +112,7 @@ export default function NavBar({ data }) {
           id="order"
           value={order}
           onChange={handleOrder}
-          className="order"
+          className={styles.order}
         >
           <option>-Order alphabetically-</option>
           <option value="orderAtoZ">Order from A to Z</option>
@@ -120,13 +125,13 @@ export default function NavBar({ data }) {
           onClick={(e) => {
             dispatch(cleaner());
           }}
-          className="btn clean"
+          className={styles.btnClean}
         >
           All countries
         </button>
 
         <NavLink to="/create">
-          <button className="btn create">
+          <button className={styles.btnCreate}>
             Click here to create activities!
           </button>
         </NavLink>

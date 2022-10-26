@@ -1,4 +1,4 @@
-.landing-container {
+.landingContainer {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.landing-title {
+.landingTitle {
   align-self: center;
   max-width: 40%;
   color: rgb(251, 245, 245);
@@ -19,7 +19,7 @@
   margin-bottom: 1.5rem;
 }
 
-.landing-button {
+.landingButton {
   padding: 1rem;
   width: 20%;
   background-color: #51b0c6;
@@ -30,7 +30,7 @@
   color: navy;
 }
 
-.landing-button:hover {
+.landingButton:hover {
   color: white;
   background-color: #8dd8eb;
   transition: all 500ms ease;

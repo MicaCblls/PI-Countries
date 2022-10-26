@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "./store/actions";
 import { Route } from "react-router-dom";
-import "./App.css";
+import styles from "./App.module.css";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
@@ -37,7 +37,7 @@ function App() {
     setCurrentPage(currentPage + number);
   };
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Route exact path={"/"} component={LandingPage} />
       <Route path={"/home"}>
         <NavBar data={data} />

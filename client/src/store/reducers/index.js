@@ -1,5 +1,6 @@
 import {
   CLEANER,
+  CLEAN_ERROR,
   CREATE,
   ERROR,
   GET_ALL_COUNTRIES,
@@ -128,6 +129,8 @@ const rootReducer = (state = initialState, action) => {
         countryDetail: {},
         error: "",
       };
+    case CLEAN_ERROR:
+      return { ...state, error: "" };
     default:
       return { ...state };
   }

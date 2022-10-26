@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createActivity } from "../../store/actions";
-import "./CreateActivity.css";
+import { createActivity, cleanError } from "../../store/actions";
+import styles from "./CreateActivity.module.css";
 export function validate(input) {
   let errors = {};
   if (!input.name) {
@@ -44,6 +44,9 @@ export default function CreateActivity({ data }) {
   let [error, setError] = useState({});
 
   const handleInputChange = (e) => {
+    if (data.error) {
+      dispatch(cleanError());
+    }
     if (e.target.name === "countries") {
       setInput((prev) => ({
         ...prev,
@@ -68,9 +71,9 @@ export default function CreateActivity({ data }) {
     });
   };
   return (
-    <div className="form-container">
+    <div className={styles.formContainer}>
       <h1>Create activities:</h1>
-      <form action="post" className="form" onSubmit={handleSubmit}>
+      <form action="post" className={styles.form} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name: </label>
           <input
@@ -81,10 +84,10 @@ export default function CreateActivity({ data }) {
             onChange={handleInputChange}
             placeholder="Insert name..."
           />
-          {error.name && <p className="danger">{error.name}</p>}
+          {error.name && <p className={styles.danger}>{error.name}</p>}
         </div>
-        <label htmlFor="difficulty">Difficulty: </label>
-        <div>
+        <div className={styles.difficulty}>
+          <label htmlFor="difficulty">Difficulty: </label>
           <input
             type="number"
             name="difficulty"
@@ -94,9 +97,11 @@ export default function CreateActivity({ data }) {
             placeholder="Insert points of difficulty..."
             min={0}
           />
-          {error.difficulty && <p className="danger">{error.difficulty}</p>}
+          {error.difficulty && (
+            <p className={styles.danger}>{error.difficulty}</p>
+          )}
         </div>
-        <div>
+        <div className={styles.duration}>
           <label htmlFor="duration">Duration: </label>
           <input
             type="number"
@@ -107,10 +112,10 @@ export default function CreateActivity({ data }) {
             placeholder="Insert time of duration..."
             min={0}
           />
-          {error.duration && <p className="danger">{error.duration}</p>}
+          {error.duration && <p className={styles.danger}>{error.duration}</p>}
         </div>
 
-        <div>
+        <div className={styles.seasonSelect}>
           <label htmlFor="season">Season: </label>
           <select
             type="text"
@@ -124,9 +129,9 @@ export default function CreateActivity({ data }) {
             <option value="Autumn">Autumn</option>
             <option value="Spring">Spring</option>
           </select>
-          {error.season && <p className="danger">{error.season}</p>}
+          {error.season && <p className={styles.danger}>{error.season}</p>}
         </div>
-        <div>
+        <div className={styles.countriesSelect}>
           <label htmlFor="countries">Countries: </label>
           <select name="countries" id="countries" onChange={handleInputChange}>
             <option>- Select countries -</option>
@@ -139,7 +144,9 @@ export default function CreateActivity({ data }) {
                 );
               })}
           </select>
-          {error.countries && <p className="danger">{error.countries}</p>}
+          {error.countries && (
+            <p className={styles.danger}>{error.countries}</p>
+          )}
         </div>
         <input
           type="submit"

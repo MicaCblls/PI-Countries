@@ -1,10 +1,17 @@
-.ul-container {
+.containerPagination {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  align-items: center;
 }
-.li-container {
-  margin: 0.2rem;
+.ulContainer {
+  list-style: none;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.liContainer {
+  padding: 0.2rem;
 }
 
 a {
