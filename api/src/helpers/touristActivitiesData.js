@@ -16,4 +16,16 @@ const createActivity = async (name, difficulty, duration, season, country) => {
   }
 };
 
-module.exports = createActivity;
+const getTouristActivities = async () => {
+  try {
+    const activitiesFromDb = await TouristActivity.findAll({
+      include: { model: Country },
+    });
+
+    return activitiesFromDb;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = { createActivity, getTouristActivities };

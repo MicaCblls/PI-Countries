@@ -1,9 +1,11 @@
 import {
   CLEANER,
   CLEAN_ERROR,
+  CLEAN_SUCCESS,
   CREATE,
   ERROR,
   GET_ALL_COUNTRIES,
+  GET_ALL_ACTIVITIES,
   GET_COUNTRIES_BY_NAME,
   GET_COUNTRY_BY_ID,
   ORDER_COUNTRIES,
@@ -17,24 +19,21 @@ const initialState = {
   countryDetail: {},
   touristActivities: [],
   error: "",
+  success: "",
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_COUNTRIES:
-      let countriesWithActivities = action.payload.filter(
-        (country) => country.touristActivities?.length
-      );
-
-      let activities = countriesWithActivities.reduce(
-        (acc, current) => [...acc, ...current.touristActivities],
-        []
-      );
       return {
         ...state,
         countries: [...action.payload],
         countriesBackUp: [...action.payload],
-        touristActivities: [...activities],
+      };
+    case GET_ALL_ACTIVITIES:
+      return {
+        ...state,
+        touristActivities: [...action.payload],
       };
     case GET_COUNTRIES_BY_NAME:
       return {
@@ -87,7 +86,7 @@ const rootReducer = (state = initialState, action) => {
     case CREATE:
       return {
         ...state,
-        touristActivity: [...state.touristActivities, action.payload],
+        success: action.payload,
       };
     case FILTER_COUNTRIES_BY_CONTINENT:
       let countriesFilteredByContinent = state.countriesBackUp.filter(
@@ -100,17 +99,14 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILTER_COUNTRIES_BY_ACTIVITY:
       let countriesFilteredByActivity = [];
-      for (let i = 0; i < state.touristActivities.length; i++) {
-        if (state.touristActivities[i].name === action.payload) {
-          for (let j = 0; j < state.countriesBackUp.length; j++) {
-            if (
-              state.countriesBackUp[j].id ===
-              state.touristActivities[i].CountryActivities.countryId
-            ) {
-              countriesFilteredByActivity.push(state.countriesBackUp[j]);
-            }
-          }
-        }
+      let activityMatch = state.touristActivities.filter(
+        (e) => e.name === action.payload
+      );
+
+      for (const activity of activityMatch) {
+        countriesFilteredByActivity = countriesFilteredByActivity.concat(
+          activity.countries.flat()
+        );
       }
 
       return {
@@ -131,6 +127,8 @@ const rootReducer = (state = initialState, action) => {
       };
     case CLEAN_ERROR:
       return { ...state, error: "" };
+    case CLEAN_SUCCESS:
+      return { ...state, success: "" };
     default:
       return { ...state };
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "./store/actions";
+import { getActivities, getCountries } from "./store/actions";
 import { Route } from "react-router-dom";
 import styles from "./App.module.css";
 import LandingPage from "./components/LandingPage/LandingPage";
@@ -18,8 +18,11 @@ function App() {
   let currentCountries;
   let totalPages = data.countries.length / 10 + 1;
   useEffect(() => {
-    if (!data.countries.length) {
+    if (!data.countriesBackUp.length) {
       dispatch(getCountries());
+    }
+    if (!data.touristActivities.length) {
+      dispatch(getActivities());
     }
   }, []);
 
@@ -40,15 +43,15 @@ function App() {
     <div className={styles.app}>
       <Route exact path={"/"} component={LandingPage} />
       <Route path={"/home"}>
-        <NavBar data={data} />
+        <NavBar data={data} setCurrentPage={setCurrentPage} />
         {data.error.length ? <Error error={data.error} /> : null}
-        <Home data={currentCountries} />
         <Pagination
           totalPages={totalPages}
           paginate={paginate}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
+        <Home data={currentCountries} />
       </Route>
       <Route path={"/details/:id"}>
         <CountryDetail data={data} />

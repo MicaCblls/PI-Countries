@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createActivity, cleanError } from "../../store/actions";
+import { createActivity, cleanError, cleanSuccess } from "../../store/actions";
+import Success from "../Success/Success";
+import Button from "../Button/Button";
 import styles from "./CreateActivity.module.css";
 export function validate(input) {
   let errors = {};
@@ -33,7 +35,6 @@ export function validate(input) {
 }
 export default function CreateActivity({ data }) {
   const dispatch = useDispatch();
-
   let [input, setInput] = useState({
     name: "",
     difficulty: "",
@@ -41,11 +42,20 @@ export default function CreateActivity({ data }) {
     season: "",
     countries: [],
   });
-  let [error, setError] = useState({});
+  let [error, setError] = useState({
+    name: "",
+    difficulty: "",
+    duration: "",
+    season: "",
+    countries: [],
+  });
 
   const handleInputChange = (e) => {
     if (data.error) {
       dispatch(cleanError());
+    }
+    if (data.success) {
+      dispatch(cleanSuccess());
     }
     if (e.target.name === "countries") {
       setInput((prev) => ({
@@ -135,8 +145,8 @@ export default function CreateActivity({ data }) {
           <label htmlFor="countries">Countries: </label>
           <select name="countries" id="countries" onChange={handleInputChange}>
             <option>- Select countries -</option>
-            {data.countries.length &&
-              data.countries.map((country) => {
+            {data.countriesBackUp.length &&
+              data.countriesBackUp.map((country) => {
                 return (
                   <option key={country.id} value={country.id}>
                     {country.name}
@@ -148,10 +158,13 @@ export default function CreateActivity({ data }) {
             <p className={styles.danger}>{error.countries}</p>
           )}
         </div>
-        <input
+        <Button
           type="submit"
           disabled={Object.entries(error).length ? true : false}
-        />
+        >
+          Create activity
+        </Button>
+        {data.success.length ? <Success success={data.success} /> : null}
       </form>
     </div>
   );

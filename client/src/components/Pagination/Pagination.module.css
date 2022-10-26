@@ -1,19 +1,23 @@
 .containerPagination {
   list-style: none;
   display: flex;
-  margin-bottom: 1.5rem;
+  padding: 1.5rem 1rem 1rem 1rem;
   justify-content: center;
   align-items: center;
 }
 .ulContainer {
   list-style: none;
   display: flex;
-  margin-bottom: 1rem;
+  overflow-x: hidden;
 }
 .liContainer {
-  padding: 0.2rem;
+  background-color: var(--background-pagination);
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin: 0.1rem;
 }
 
 a {
   text-decoration: none;
+  color: var(--text);
 }

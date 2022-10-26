@@ -8,16 +8,12 @@ import {
   getCountriesByName,
   getCountriesOrdered,
 } from "../../store/actions";
-import Button from "../Boton/Button";
+import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
-export default function NavBar({ data }) {
+export default function NavBar({ data, setCurrentPage }) {
   const countriesBackUp = data.countriesBackUp;
-  const activities = [
-    ...new Set(data.touristActivities.map((elem) => elem.name)),
-  ];
-
   const continents = [
     ...new Set(countriesBackUp.map((country) => country.continent)),
   ];
@@ -32,13 +28,13 @@ export default function NavBar({ data }) {
     if (data.error) {
       dispatch(cleanError());
     }
-
     setName(e.target.value);
   };
   const handleOrder = (e) => {
     e.preventDefault();
     setOrder(e.target.value);
     dispatch(getCountriesOrdered(e.target.value));
+    setCurrentPage(1);
     setOrder("");
   };
 
@@ -46,6 +42,7 @@ export default function NavBar({ data }) {
     e.preventDefault();
     setFilter(e.target.value);
     dispatch(filterCountriesByContinent(e.target.value));
+    setCurrentPage(1);
     setFilter("");
   };
 
@@ -53,11 +50,13 @@ export default function NavBar({ data }) {
     e.preventDefault();
     setFilter(e.target.value);
     dispatch(filterCountriesByActivity(e.target.value));
+    setCurrentPage(1);
     setFilter("");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(getCountriesByName(name));
+    setCurrentPage(1);
     setName("");
   };
 
@@ -80,7 +79,7 @@ export default function NavBar({ data }) {
           id="filterByContinent"
           value={filter}
           onChange={handleFilterByContinet}
-          className={styles.filter}
+          className={styles.filterContinent}
         >
           <option>-Filter by continent-</option>
           {continents.map((continent) => {
@@ -96,16 +95,20 @@ export default function NavBar({ data }) {
           id="filterByActivity"
           value={filter}
           onChange={handleFilterByActivity}
-          className={styles.filter}
+          className={styles.filterActivity}
         >
           <option>-Filter by activity-</option>
-          {activities.map((activity) => {
-            return (
-              <option key={activity} value={activity}>
-                {activity}
-              </option>
-            );
-          })}
+          {data.touristActivities.length ? (
+            data.touristActivities.map((activity) => {
+              return (
+                <option key={activity.id} value={activity.name}>
+                  {activity.name}
+                </option>
+              );
+            })
+          ) : (
+            <option>No activities created</option>
+          )}
         </select>
         <select
           name="order"
@@ -121,19 +124,17 @@ export default function NavBar({ data }) {
           <option value="ascending">Population highest to lowest</option>
           <option value="descending">Population lowest to highest</option>
         </select>
-        <button
+        <Button
           onClick={(e) => {
             dispatch(cleaner());
           }}
-          className={styles.btnClean}
+          variant="secondary"
         >
           All countries
-        </button>
+        </Button>
 
         <NavLink to="/create">
-          <button className={styles.btnCreate}>
-            Click here to create activities!
-          </button>
+          <Button variant="secondary">Click here to create activities!</Button>
         </NavLink>
       </nav>
     </React.Fragment>

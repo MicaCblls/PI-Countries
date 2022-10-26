@@ -27,8 +27,12 @@ code {
 
 :root {
   --background: #f1f5f9;
+  --background-option: #eef2ff;
+  --background-nav: #e0e7ff;
+  --background-pagination: #cbd5e1;
   --primary-color: #6366f1;
   --secondary-color: #94a3b8;
   --error-color: #c51b1b;
+  --success-color: #1bc579;
   --text: #0f172a;
 }

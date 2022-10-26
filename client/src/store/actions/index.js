@@ -2,8 +2,10 @@ import axios from "axios";
 
 export const ERROR = "ERROR";
 export const CLEAN_ERROR = "CLEAN_ERROR";
+export const CLEAN_SUCCESS = "CLEAN_SUCCESS";
 export const CLEANER = "CLEANER";
 export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
+export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const GET_COUNTRIES_BY_NAME = "GET_COUNTRIES_BY_NAME";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
 export const ORDER_COUNTRIES = "ORDER_COUNTRIES";
@@ -15,6 +17,14 @@ export const getCountries = () => {
   return function (dispatch) {
     axios.get("http://localhost:3001/countries").then(
       (res) => dispatch({ type: GET_ALL_COUNTRIES, payload: res.data }),
+      (error) => dispatch({ type: ERROR, payload: error.response.data })
+    );
+  };
+};
+export const getActivities = () => {
+  return function (dispatch) {
+    axios.get("http://localhost:3001/activities").then(
+      (res) => dispatch({ type: GET_ALL_ACTIVITIES, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
   };
@@ -46,7 +56,7 @@ export const getCountriesOrdered = (order) => {
 export const createActivity = (values) => {
   return function (dispatch) {
     axios.post("http://localhost:3001/activities", values).then(
-      (res) => dispatch({ type: CREATE, payload: res.data.dataValues }),
+      (res) => dispatch({ type: CREATE, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
   };
@@ -70,4 +80,7 @@ export const cleaner = () => {
 
 export const cleanError = () => {
   return { type: CLEAN_ERROR };
+};
+export const cleanSuccess = () => {
+  return { type: CLEAN_SUCCESS };
 };

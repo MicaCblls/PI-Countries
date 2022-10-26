@@ -6,21 +6,32 @@
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  border-bottom: 1px solid /* #64748b */;
+  border-bottom: 1px solid #64748b;
+  background-color: var(--background-nav);
 }
-.searchBar {
-  margin-right: 5rem;
+/* form {
+  display: flex;
+} */
+.searchInput {
+  margin-right: 1.2rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 2px inset;
+  height: 100%;
+  width: auto;
 }
 
-.filter,
+.filterContinent,
+.filterActivity,
 .order {
-  margin: 0 1rem;
   padding: 0.5rem;
   border: 2px inset rgba(2, 51, 95, 0.3);
   border-radius: 20px;
-  /* background-color: #eef2ff; */
+  background-color: var(--background-option);
 }
-
-.btnSearch {
-  margin: 0 1.5rem;
+.filterContinent {
+  margin-left: 2rem;
+}
+.order {
+  margin-right: 2rem;
 }
