@@ -21,6 +21,7 @@
   border: 1px inset rgba(0 0 0 / 5%);
   height: 100%;
   width: 40vh;
+  font-size: 16px;
 }
 
 .filterContinent,
@@ -30,6 +31,7 @@
   border: 2px inset rgba(2, 51, 95, 0.3);
   border-radius: 20px;
   background-color: var(--background-option);
+  font-size: 18px;
 }
 .filterContinent {
   margin-left: 2rem;

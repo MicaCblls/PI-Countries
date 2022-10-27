@@ -6,10 +6,28 @@ export default function Pagination({
   currentPage,
   setCurrentPage,
 }) {
-  const pageNumbers = [];
+  const maxNumbers = 10;
+  let pages = [];
+  //Filling array with pages numbers
   for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
+    pages.push(i);
   }
+  //getting only 10 pages
+  let pageNumbers = () => {
+    const half = Math.round(maxNumbers / 2);
+    let to = maxNumbers;
+    if (currentPage + half >= totalPages) {
+      to = totalPages;
+    } else if (currentPage > half) {
+      to = currentPage + half;
+    }
+    let from = to - maxNumbers;
+    if (from < 0) {
+      from = 0;
+    }
+    return pages.slice(from, to);
+  };
+
   return (
     <div className={styles.containerPagination}>
       {currentPage > 1 && (
@@ -19,7 +37,7 @@ export default function Pagination({
           </a>
         </li>
       )}
-      {pageNumbers.map((number) => (
+      {pageNumbers().map((number) => (
         <li
           key={number}
           className={
@@ -31,7 +49,7 @@ export default function Pagination({
           </a>
         </li>
       ))}
-      {currentPage !== pageNumbers.length && (
+      {currentPage !== totalPages && (
         <li className={styles.next}>
           <a href="#" onClick={() => paginate(1)}>
             Next

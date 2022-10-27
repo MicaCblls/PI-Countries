@@ -26,11 +26,10 @@ code {
 
 :root {
   --background-option: #eef2ff;
-  --background-nav: #e0e7ff;
-  --background-pagination: #e2e8f0;
+  --background-nav: #e2e8f0;
   --background-active: #ddd6fe;
   --primary-color: #6366f1;
-  --secondary-color: #ddd6fe;
+  --secondary-color: #ede9fe;
   --disabled-color: #c7d2fe;
   --error-color: #c51b1b;
   --success-color: #1bc579;

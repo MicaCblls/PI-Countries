@@ -72,7 +72,7 @@ export default function NavBar({ data, setCurrentPage }) {
             className={styles.searchInput}
           />
           <Button type="submit">
-            <span class="material-symbols-outlined">travel_explore</span>
+            <span className="material-symbols-outlined">travel_explore</span>
           </Button>
         </form>
 

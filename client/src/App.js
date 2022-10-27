@@ -32,9 +32,13 @@ function App() {
     currentCountries = data.countries.slice(0, 9);
   } else {
     currentCountries = data.countries.slice(
-      (currentPage - 1) * 10 - 1,
+      (currentPage - 1) * 10 - 1, //slice desde 9, a 19, la primera vez que entra a esta condicion current page vale 2, por eso el -1
       (currentPage - 1) * 10 + 9
     );
+  }
+
+  if (data.countries.length < data.countriesBackUp.length) {
+    totalPages = Math.ceil(data.countries.length / 10);
   }
 
   //Change page
