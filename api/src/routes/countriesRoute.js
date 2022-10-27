@@ -13,7 +13,7 @@ router.get("", async (req, res) => {
     await saveCountriesData();
     let countriesDb = await getCountriesFromDb();
     if (!countriesDb.length) {
-      throw new Error("No countries found");
+      return res.status(503).send("No countries found");
     }
 
     countriesDb = countriesDb.map(
@@ -45,7 +45,7 @@ router.get("", async (req, res) => {
       let countryByName = await getCountryByName(name);
 
       if (!countryByName.length) {
-        throw new Error("No country found");
+        return res.status(404).send("No country found");
       } else {
         countryByName = countryByName.map((el) => {
           return {
@@ -65,9 +65,9 @@ router.get("", async (req, res) => {
       }
     }
 
-    return res.status(200).send(countriesDb);
+    res.status(200).send(countriesDb);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(500).send(error.message);
   }
 });
 
@@ -76,11 +76,11 @@ router.get("/:idPais", async (req, res) => {
     let { idPais } = req.params;
     let countryById = await getCountryById(idPais);
     if (!countryById) {
-      throw new Error(`The ID doesn't exist`);
+      return res.status(404).send(`The ID doesn't exist`);
     }
     res.status(200).send(countryById);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(500).send(error.message);
   }
 });
 

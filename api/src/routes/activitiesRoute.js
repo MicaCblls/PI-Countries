@@ -41,7 +41,7 @@ router.get("", async (req, res) => {
   try {
     const activitiesFromDb = await getTouristActivities();
     if (!activitiesFromDb) {
-      res.status(204).send("No activities created");
+      return res.status(204).send("No activities created");
     }
     res.status(200).send(activitiesFromDb);
   } catch (error) {
