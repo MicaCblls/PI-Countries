@@ -22,21 +22,31 @@ export default function CountryDetail({ data }) {
         />
         <div className={styles.detailTextContainer}>
           <h2 className={styles.detailTitleCountry}>{countryDetail.name}</h2>
-          <p>Code: {countryDetail.id}</p>
-          <p>Contient: {countryDetail.continent}</p>
-          <p>Capital: {countryDetail.capital}</p>
-          <p>Subregión: {countryDetail.subregion}</p>
-          <p>Area: {countryDetail.area} km2</p>
-          <p>Population: {countryDetail.population}</p>
-          <h3>Tourist activity:</h3>
+          <span>Code:</span>
+          <p>{countryDetail.id}</p>
+          <span>Contient:</span>
+          <p>{countryDetail.continent}</p>
+          <span>Capital:</span>
+          <p>{countryDetail.capital}</p>
+          <span>Subregión:</span>
+          <p>{countryDetail.subregion}</p>
+          <span>Area:</span>
+          <p>{countryDetail.area} km2</p>
+          <span>Population:</span>
+          <p>{countryDetail.population}</p>
+          <h3 className={styles.touristActivitiesTitle}>Tourist activity:</h3>
           {countryDetail.touristActivities?.length ? (
             countryDetail.touristActivities.map((e) => {
               return (
-                <div key={e.id}>
-                  <p>Name: {e.name}</p>
-                  <p>Season: {e.season}</p>
-                  <p>Duration: {e.duration} h</p>
-                  <p>Difficulty: {e.difficulty}</p>
+                <div className={styles.touristActivity} key={e.id}>
+                  <span>Name:</span>
+                  <p>{e.name}</p>
+                  <span>Season:</span>
+                  <p>{e.season}</p>
+                  <span>Duration:</span>
+                  <p>{e.duration} h</p>
+                  <span>Difficulty:</span>
+                  <p>{e.difficulty} points</p>
                 </div>
               );
             })

@@ -17,6 +17,7 @@ function App() {
   let [currentPage, setCurrentPage] = useState(1);
   let currentCountries;
   let totalPages = data.countries.length / 10 + 1;
+  //getting the data if the countries data is empty
   useEffect(() => {
     if (!data.countriesBackUp.length) {
       dispatch(getCountries());
@@ -26,6 +27,7 @@ function App() {
     }
   }, []);
 
+  //setting current page
   if (currentPage === 1) {
     currentCountries = data.countries.slice(0, 9);
   } else {
