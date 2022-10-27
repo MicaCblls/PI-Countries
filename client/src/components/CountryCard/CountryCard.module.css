@@ -8,6 +8,8 @@
   justify-content: space-evenly;
   max-width: 100%;
   border-radius: 15px;
+  border: 1px solid rgba(0 0 0 / 8%);
+  transition: all 0.5s ease-in-out;
 }
 .container:hover {
   box-shadow: 6px 5px 6px 6px rgb(0 0 0 / 9%);

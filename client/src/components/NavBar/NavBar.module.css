@@ -18,7 +18,7 @@
   margin-right: 1rem;
   padding: 0.8rem;
   border-radius: 10px;
-  border: 2px inset;
+  border: 1px inset rgba(0 0 0 / 5%);
   height: 100%;
   width: 40vh;
 }
@@ -33,4 +33,14 @@
 }
 .filterContinent {
   margin-left: 2rem;
+}
+input {
+  outline: none;
+}
+option {
+  border-radius: 10px;
+  background-color: var(--background-option);
+}
+option:hover {
+  background-color: var(--background-active);
 }

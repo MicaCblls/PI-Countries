@@ -9,7 +9,6 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  background-color: var(--background);
 }
 
 body {
@@ -26,13 +25,12 @@ code {
 }
 
 :root {
-  --background: #f1f5f9;
   --background-option: #eef2ff;
   --background-nav: #e0e7ff;
   --background-pagination: #e2e8f0;
-  --background-active-page: #94a3b8;
+  --background-active: #ddd6fe;
   --primary-color: #6366f1;
-  --secondary-color: #94a3b8;
+  --secondary-color: #ddd6fe;
   --disabled-color: #c7d2fe;
   --error-color: #c51b1b;
   --success-color: #1bc579;
