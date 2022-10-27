@@ -12,29 +12,32 @@ export default function Pagination({
   }
   return (
     <div className={styles.containerPagination}>
-      <ul className={styles.ulContainer}>
-        {currentPage > 1 && (
-          <li className={styles.liContainer}>
-            <a href="#" onClick={() => paginate(-1)}>
-              Prev
-            </a>
-          </li>
-        )}
-        {pageNumbers.map((number) => (
-          <li key={number} className={styles.liContainer}>
-            <a href="#" onClick={() => setCurrentPage(number)}>
-              {number}
-            </a>
-          </li>
-        ))}
-        {currentPage !== pageNumbers.length && (
-          <li className={styles.liContainer}>
-            <a href="#" onClick={() => paginate(1)}>
-              Next
-            </a>
-          </li>
-        )}
-      </ul>
+      {currentPage > 1 && (
+        <li className={styles.previous}>
+          <a href="#" onClick={() => paginate(-1)}>
+            Prev
+          </a>
+        </li>
+      )}
+      {pageNumbers.map((number) => (
+        <li
+          key={number}
+          className={
+            number === currentPage ? styles.active : styles.liContainer
+          }
+        >
+          <a href="#" onClick={() => setCurrentPage(number)}>
+            {number}
+          </a>
+        </li>
+      ))}
+      {currentPage !== pageNumbers.length && (
+        <li className={styles.next}>
+          <a href="#" onClick={() => paginate(1)}>
+            Next
+          </a>
+        </li>
+      )}
     </div>
   );
 }

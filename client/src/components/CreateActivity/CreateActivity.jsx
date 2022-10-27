@@ -80,76 +80,75 @@ export default function CreateActivity({ data }) {
       countries: [],
     });
   };
+  let disabled = Object.entries(error).length ? true : false;
+
   return (
-    <div className={styles.formContainer}>
-      <div className={styles.heading}>Create activities:</div>
-      <form action="post" className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.name}>
-          <label htmlFor="name">Name: </label>
+    <div className={styles.container}>
+      <div className={styles.formContainer}>
+        <form action="post" className={styles.form} onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
             id="name"
+            className={styles.name}
             value={input.name}
             onChange={handleInputChange}
             placeholder="Insert name..."
           />
-          {error.name.length ? (
+          {error.name ? (
             <div className={styles.danger}>{error.name}</div>
           ) : null}
-        </div>
-        <div className={styles.difficulty}>
-          <label htmlFor="difficulty">Difficulty: </label>
           <input
             type="number"
             name="difficulty"
             id="difficulty"
+            className={styles.difficulty}
             value={input.difficulty}
             onChange={handleInputChange}
             placeholder="Insert points of difficulty..."
             min={0}
           />
-          {error.difficulty.length ? (
+          {error.difficulty ? (
             <div className={styles.danger}>{error.difficulty}</div>
           ) : null}
-        </div>
-        <div className={styles.duration}>
-          <label htmlFor="duration">Duration: </label>
+
           <input
             type="number"
             name="duration"
             id="duration"
+            className={styles.duration}
             value={input.duration}
             onChange={handleInputChange}
             placeholder="Insert time of duration..."
             min={0}
           />
-          {error.duration.length ? (
+          {error.duration ? (
             <div className={styles.danger}>{error.duration}</div>
           ) : null}
-        </div>
 
-        <div className={styles.seasonSelect}>
-          <label htmlFor="season">Season: </label>
           <select
             type="text"
             name="season"
             id="season"
+            className={styles.seasonSelect}
             onChange={handleInputChange}
           >
-            <option value="">- Select season -</option>
+            <option>- Select season -</option>
             <option value="Summer">Summer</option>
             <option value="Winter">Winter</option>
             <option value="Autumn">Autumn</option>
             <option value="Spring">Spring</option>
           </select>
-          {error.season.length ? (
+          {error.season ? (
             <div className={styles.danger}>{error.season}</div>
           ) : null}
-        </div>
-        <div className={styles.countriesSelect}>
-          <label htmlFor="countries">Countries: </label>
-          <select name="countries" id="countries" onChange={handleInputChange}>
+
+          <select
+            name="countries"
+            id="countries"
+            className={styles.countriesSelect}
+            onChange={handleInputChange}
+          >
             <option>- Select countries -</option>
             {data.countriesBackUp.length &&
               data.countriesBackUp.map((country) => {
@@ -160,18 +159,15 @@ export default function CreateActivity({ data }) {
                 );
               })}
           </select>
-          {error.countries.length ? (
+          {error.countries ? (
             <div className={styles.danger}>{error.countries}</div>
           ) : null}
-        </div>
-        <Button
-          type="submit"
-          disabled={Object.entries(error).length ? true : false}
-        >
-          Create activity
-        </Button>
-        {data.success.length ? <Success success={data.success} /> : null}
-      </form>
+          <Button type="submit" disabled={disabled}>
+            Create activity
+          </Button>
+          {data.success.length ? <Success success={data.success} /> : null}
+        </form>
+      </div>
     </div>
   );
 }

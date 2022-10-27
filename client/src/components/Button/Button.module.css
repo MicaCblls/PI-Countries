@@ -1,12 +1,15 @@
 button {
-  padding: 0.6rem 2rem;
+  padding: 0.4rem 2rem;
   border-radius: 20px;
-  color: white;
   border: none;
 }
 
 .primary {
   background-color: var(--primary-color);
+  color: #f8fafc;
+}
+.primary:disabled {
+  background-color: var(--disabled-color);
 }
 
 .secondary {

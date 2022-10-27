@@ -71,7 +71,9 @@ export default function NavBar({ data, setCurrentPage }) {
             onChange={handleChange}
             className={styles.searchInput}
           />
-          <Button type="submit">Search</Button>
+          <Button type="submit">
+            <span class="material-symbols-outlined">travel_explore</span>
+          </Button>
         </form>
 
         <select

@@ -16,7 +16,7 @@ function App() {
   const data = useSelector((state) => state);
   let [currentPage, setCurrentPage] = useState(1);
   let currentCountries;
-  let totalPages = data.countries.length / 10 + 1;
+  let totalPages = Math.ceil(data.countries.length / 10) + 1;
   //getting the data if the countries data is empty
   useEffect(() => {
     if (!data.countriesBackUp.length) {
@@ -47,13 +47,13 @@ function App() {
       <Route path={"/home"}>
         <NavBar data={data} setCurrentPage={setCurrentPage} />
         {data.error.length ? <Error error={data.error} /> : null}
+        <Home data={currentCountries} />
         <Pagination
           totalPages={totalPages}
           paginate={paginate}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-        <Home data={currentCountries} />
       </Route>
       <Route path={"/details/:id"}>
         <CountryDetail data={data} />

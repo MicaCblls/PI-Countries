@@ -13,7 +13,7 @@
   box-shadow: 6px 5px 6px 6px rgb(0 0 0 / 9%);
 }
 .img {
-  max-width: 50%;
+  width: 40%;
   align-self: auto;
 }
 .textContainer {
@@ -31,14 +31,3 @@
 p {
   font-weight: 400;
 }
-/* .detailButton {
-  padding: 0.5rem 0.9rem;
-  background-color: rgba(6, 18, 148, 0.4);
-  border: 2px outset lightslategrey;
-  border-radius: 5px;
-}
-.detailButton:hover {
-  color: white;
-  background-color: rgba(45, 71, 244, 0.6);
-  transition: all 500ms ease;
-} */

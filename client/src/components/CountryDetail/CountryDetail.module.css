@@ -2,7 +2,7 @@
   background-color: white;
   max-width: fit-content;
   max-height: fit-content;
-  margin: 1rem;
+  margin-top: 13rem;
   padding: 1.5rem;
   display: flex;
   align-items: center;
@@ -28,10 +28,7 @@
   margin: 0.5rem 0;
   text-decoration: underline;
 }
-span {
-  font-weight: 600;
-  margin: 0.2rem;
-}
+
 p {
   margin-bottom: 0.5rem;
   font-weight: 400;
