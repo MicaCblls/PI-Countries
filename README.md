@@ -19,9 +19,6 @@ https://user-images.githubusercontent.com/83962558/205776704-4a7c9aee-c050-4d0e-
 
 ## Comenzando
 
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
-
 Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
 
 __IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
@@ -69,6 +66,11 @@ Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credencial
 Adicionalmente será necesario que creen desde psql una base de datos llamada `countries`
 
 El contenido de `client` fue creado usando: Create React App.
+
+## Pasos para visualizar el proyecto desde tu computador:
+ 1. Clonar el repositorio en sus computadoras para comenzar a trabajar
+ 2. Desde la carpeta "api", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
+ 3. Desde la carpeta "client", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
 
 ## Enunciado
 
