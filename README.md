@@ -6,6 +6,8 @@
   <img height="200" src="./countries.png" />
 </p>
 
+https://user-images.githubusercontent.com/83962558/205776704-4a7c9aee-c050-4d0e-ae04-75aa996ee037.mp4
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
@@ -14,9 +16,6 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Horarios y Fechas
-
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
 
 ## Comenzando
 
