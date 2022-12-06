@@ -68,9 +68,10 @@ Adicionalmente será necesario que creen desde psql una base de datos llamada `c
 El contenido de `client` fue creado usando: Create React App.
 
 ## Pasos para visualizar el proyecto desde tu computador:
- 1. Clonar el repositorio en sus computadoras para comenzar a trabajar
- 2. Desde la carpeta "api", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
- 3. Desde la carpeta "client", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
+ 1. Clonar el repositorio en sus computadoras para comenzar a trabajar.
+ 2. Crear el archivo .env descripto en el apartado Boilerplate.
+ 3. Desde la carpeta "api", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
+ 4. Desde la carpeta "client", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
 
 ## Enunciado
 
