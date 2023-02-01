@@ -6,6 +6,8 @@
   <img height="200" src="./countries.png" />
 </p>
 
+https://user-images.githubusercontent.com/83962558/205776704-4a7c9aee-c050-4d0e-ae04-75aa996ee037.mp4
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
@@ -14,14 +16,8 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Horarios y Fechas
-
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
 
 ## Comenzando
-
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
 
 Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
 
@@ -70,6 +66,12 @@ Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credencial
 Adicionalmente será necesario que creen desde psql una base de datos llamada `countries`
 
 El contenido de `client` fue creado usando: Create React App.
+
+## Pasos para visualizar el proyecto desde tu computador:
+ 1. Clonar el repositorio en sus computadoras para comenzar a trabajar.
+ 2. Crear el archivo .env descripto en el apartado Boilerplate.
+ 3. Desde la carpeta "api", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
+ 4. Desde la carpeta "client", desplegar la consola del editor de código que te encuentres utilizando, ejecutar los comandos npm install y, una vez finalizadas las intalaciones, ejecutar el comando npm start.
 
 ## Enunciado
 
