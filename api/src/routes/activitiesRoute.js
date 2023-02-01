@@ -29,9 +29,7 @@ router.post("", async (req, res) => {
       countries
     );
 
-    res
-      .status(201)
-      .send(newActivity.dataValues && "Activity created successfully");
+    res.status(201).send(newActivity && "Activity created successfully");
   } catch (error) {
     res.status(500).send(error.message);
   }
