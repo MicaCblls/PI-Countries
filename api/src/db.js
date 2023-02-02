@@ -2,35 +2,34 @@ require("dotenv").config();
 const { Sequelize, Op } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { PGDATABASE, PGHOST, PGPORT, PGUSER, PGPASSWORD } = process.env;
 
-let sequelize =
-  process.env.NODE_ENV === "production"
-    ? new Sequelize({
-        database: PGDATABASE,
-        dialect: "postgres",
-        host: PGHOST,
-        port: PGPORT,
-        username: PGUSER,
-        password: PGPASSWORD,
-        pool: {
-          max: 3,
-          min: 1,
-          idle: 10000,
-        },
-        dialectOptions: {
-          ssl: {
-            require: true,
-            rejectUnauthorized: false,
-          },
-          keepAlive: true,
-        },
-        ssl: true,
-      })
-    : new Sequelize(
+let sequelize = new Sequelize({
+  database: PGDATABASE,
+  dialect: "postgres",
+  host: PGHOST,
+  port: PGPORT,
+  username: PGUSER,
+  password: PGPASSWORD,
+  pool: {
+    max: 3,
+    min: 1,
+    idle: 10000,
+  },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+    keepAlive: true,
+  },
+  ssl: true,
+  logging: false,
+});
+/* new Sequelize(
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
         { logging: false, native: false }
-      );
+      ); */
 
 const basename = path.basename(__filename);
 
