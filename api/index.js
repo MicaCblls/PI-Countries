@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const port = "pi-countries-production-14b6.up.railway.app" || 3001;
+const port = 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
