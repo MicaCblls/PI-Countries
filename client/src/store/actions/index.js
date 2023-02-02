@@ -15,7 +15,7 @@ export const CREATE = "CREATE";
 
 export const getCountries = () => {
   return function (dispatch) {
-    axios.get("http://localhost:3001/countries").then(
+    axios.get("/countries").then(
       (res) => dispatch({ type: GET_ALL_COUNTRIES, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
@@ -23,7 +23,7 @@ export const getCountries = () => {
 };
 export const getActivities = () => {
   return function (dispatch) {
-    axios.get("http://localhost:3001/activities").then(
+    axios.get("/activities").then(
       (res) => dispatch({ type: GET_ALL_ACTIVITIES, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
@@ -32,7 +32,7 @@ export const getActivities = () => {
 
 export const getCountriesByName = (name) => {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/countries?name=${name}`).then(
+    axios.get(`/countries?name=${name}`).then(
       (res) => dispatch({ type: GET_COUNTRIES_BY_NAME, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
@@ -41,7 +41,7 @@ export const getCountriesByName = (name) => {
 
 export const getContryById = (id) => {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/countries/${id}`).then(
+    axios.get(`/countries/${id}`).then(
       (res) => {
         dispatch({ type: GET_COUNTRY_BY_ID, payload: res.data });
       },
@@ -55,7 +55,7 @@ export const getCountriesOrdered = (order) => {
 
 export const createActivity = (values) => {
   return function (dispatch) {
-    axios.post("http://localhost:3001/activities", values).then(
+    axios.post("/activities", values).then(
       (res) => dispatch({ type: CREATE, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
