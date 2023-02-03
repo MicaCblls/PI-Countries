@@ -1,8 +1,10 @@
 const { Router } = require("express");
-const { getTouristActivities } = require("../helpers/touristActivitiesData");
+const {
+  createActivity,
+} = require("../helpers/touristActivitiesData");
 const router = Router();
 
-/* router.post("", async (req, res) => {
+router.post("", async (req, res) => {
   try {
     let { name, difficulty, duration, season, countries } = req.body;
     if (!name || !difficulty || !duration || !season || !countries) {
@@ -27,18 +29,6 @@ const router = Router();
     );
 
     res.status(201).send(newActivity && "Activity created successfully");
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-}); */
-
-router.get("", async (req, res) => {
-  try {
-    const activitiesFromDb = await getTouristActivities();
-    if (!activitiesFromDb) {
-      return res.status(204).send("No activities created");
-    }
-    res.status(200).send(activitiesFromDb);
   } catch (error) {
     res.status(500).send(error.message);
   }
