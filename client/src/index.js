@@ -6,10 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/store";
 import axios from "axios";
-import dotenv from "dotenv";
 /* import reportWebVitals from './reportWebVitals'; */
-
-dotenv.config();
 
 const { REACT_APP_API } = process.env;
 
