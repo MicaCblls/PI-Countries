@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const {
   createActivity,
+  getTouristActivities,
 } = require("../helpers/touristActivitiesData");
 const router = Router();
 
