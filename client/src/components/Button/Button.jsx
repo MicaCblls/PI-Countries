@@ -1,12 +1,14 @@
 import React from "react";
-import styles from "./Button.module.css";
 
 // variant = primary | secondary
 export default function Button({ variant, children, ...props }) {
   const variantStyle =
-    variant === "primary" ? styles.primary : styles.secondary;
+    variant === "primary" ? "bg-colorPrimary" : "bg-colorSecondary";
   return (
-    <button className={variantStyle} {...props}>
+    <button
+      className={`flex justify-center items-center py-1 px-6 md:py-2 rounded-full border border-solid border-neutral-400 text-lg transition-all ease-in-out ${variantStyle} hover:opacity-70 disabled:bg-disabledColor`}
+      {...props}
+    >
       {children}
     </button>
   );

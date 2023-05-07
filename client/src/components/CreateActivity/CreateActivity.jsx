@@ -4,6 +4,9 @@ import { createActivity, cleanError, cleanSuccess } from "../../store/actions";
 import Success from "../Success/Success";
 import Button from "../Button/Button";
 import styles from "./CreateActivity.module.css";
+import { NavLink } from "react-router-dom";
+import { BsArrowBarLeft } from "react-icons/bs";
+
 export function validate(input) {
   let errors = {};
   if (!input.name) {
@@ -83,91 +86,109 @@ export default function CreateActivity({ data }) {
   let disabled = Object.entries(error).length ? true : false;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.formContainer}>
-        <form action="post" className={styles.form} onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className={styles.name}
-            value={input.name}
-            onChange={handleInputChange}
-            placeholder="Insert name..."
-          />
-          {error.name ? (
-            <div className={styles.danger}>{error.name}</div>
-          ) : null}
-          <input
-            type="number"
-            name="difficulty"
-            id="difficulty"
-            className={styles.difficulty}
-            value={input.difficulty}
-            onChange={handleInputChange}
-            placeholder="Insert points of difficulty..."
-            min={0}
-          />
-          {error.difficulty ? (
-            <div className={styles.danger}>{error.difficulty}</div>
-          ) : null}
+    <>
+      <NavLink
+        to="/home"
+        className="flex self-start items-center font-medium md:text-lg text-blue pt-6 w-full px-4 md:px-8"
+      >
+        <BsArrowBarLeft className="w-7 h-auto" /> Home
+      </NavLink>
+      <div className={styles.container}>
+        <div className={styles.formContainer}>
+          <form action="post" className={styles.form} onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className={styles.name}
+              value={input.name}
+              onChange={handleInputChange}
+              placeholder="Insert name..."
+            />
+            {error.name ? (
+              <small className="h-6 text-red-600 text-xs md:text-base text-left">
+                {error.name}
+              </small>
+            ) : null}
+            <input
+              type="number"
+              name="difficulty"
+              id="difficulty"
+              className={styles.difficulty}
+              value={input.difficulty}
+              onChange={handleInputChange}
+              placeholder="Insert points of difficulty..."
+              min={0}
+            />
+            {error.difficulty ? (
+              <small className="h-6 text-red-600 text-xs md:text-base text-left">
+                {error.difficulty}
+              </small>
+            ) : null}
 
-          <input
-            type="number"
-            name="duration"
-            id="duration"
-            className={styles.duration}
-            value={input.duration}
-            onChange={handleInputChange}
-            placeholder="Insert time of duration..."
-            min={0}
-          />
-          {error.duration ? (
-            <div className={styles.danger}>{error.duration}</div>
-          ) : null}
+            <input
+              type="number"
+              name="duration"
+              id="duration"
+              className={styles.duration}
+              value={input.duration}
+              onChange={handleInputChange}
+              placeholder="Insert time of duration..."
+              min={0}
+            />
+            {error.duration ? (
+              <small className="h-6 text-red-600 text-xs md:text-base text-left">
+                {error.duration}
+              </small>
+            ) : null}
 
-          <select
-            type="text"
-            name="season"
-            id="season"
-            className={styles.seasonSelect}
-            onChange={handleInputChange}
-          >
-            <option>- Select season -</option>
-            <option value="Summer">Summer</option>
-            <option value="Winter">Winter</option>
-            <option value="Autumn">Autumn</option>
-            <option value="Spring">Spring</option>
-          </select>
-          {error.season ? (
-            <div className={styles.danger}>{error.season}</div>
-          ) : null}
+            <select
+              type="text"
+              name="season"
+              id="season"
+              className={styles.seasonSelect}
+              onChange={handleInputChange}
+            >
+              <option>- Select season -</option>
+              <option value="Summer">Summer</option>
+              <option value="Winter">Winter</option>
+              <option value="Autumn">Autumn</option>
+              <option value="Spring">Spring</option>
+            </select>
+            {error.season ? (
+              <small className="h-6 text-red-600 text-xs md:text-base text-left">
+                {error.season}
+              </small>
+            ) : null}
 
-          <select
-            name="countries"
-            id="countries"
-            className={styles.countriesSelect}
-            onChange={handleInputChange}
-          >
-            <option>- Select countries -</option>
-            {data.countriesBackUp.length &&
-              data.countriesBackUp.map((country) => {
-                return (
-                  <option key={country.id} value={country.id}>
-                    {country.name}
-                  </option>
-                );
-              })}
-          </select>
-          {error.countries ? (
-            <div className={styles.danger}>{error.countries}</div>
-          ) : null}
-          <Button type="submit" disabled={disabled}>
-            Create activity
-          </Button>
-          {data.success.length ? <Success success={data.success} /> : null}
-        </form>
+            <select
+              name="countries"
+              id="countries"
+              className={styles.countriesSelect}
+              onChange={handleInputChange}
+            >
+              <option>- Select countries -</option>
+              {data.countriesBackUp.length &&
+                data.countriesBackUp.map((country) => {
+                  return (
+                    <option key={country.id} value={country.id}>
+                      {country.name}
+                    </option>
+                  );
+                })}
+            </select>
+            {error.countries ? (
+              <small className="h-6 text-red-600 text-xs md:text-base text-left">
+                {error.countries}
+              </small>
+            ) : null}
+            <Button type="submit" disabled={disabled}>
+              Create activity
+            </Button>
+            {data.success.length ? <Success success={data.success} /> : null}
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

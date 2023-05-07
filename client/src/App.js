@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getActivities, getCountries } from "./store/actions";
 import { Route } from "react-router-dom";
-import styles from "./App.module.css";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
@@ -46,7 +45,7 @@ function App() {
     setCurrentPage(currentPage + number);
   };
   return (
-    <div className={styles.app}>
+    <div className="flex flex-col text-center no-underline items-center ">
       <Route exact path={"/"} component={LandingPage} />
       <Route path={"/home"}>
         <NavBar data={data} setCurrentPage={setCurrentPage} />
@@ -59,10 +58,10 @@ function App() {
           setCurrentPage={setCurrentPage}
         />
       </Route>
-      <Route path={"/details/:id"}>
+      {/*  <Route path={"/details/:id"}>
         <CountryDetail data={data} />
         {data.error.length ? <Error error={data.error} /> : null}
-      </Route>
+      </Route> */}
       <Route path={"/create"}>
         <CreateActivity data={data} />
         {data.error.length ? <Error error={data.error} /> : null}

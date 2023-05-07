@@ -11,18 +11,20 @@
   text-align: center;
 }
 .landingTitle {
-  font-size: 75px;
-  color: #f8fafc;
+  font-size: clamp(1.5rem, 0.7097rem + 4.2149vw, 4.6875rem);
+  color: darkslateblue;
   font-weight: 700;
 }
 .landingButton {
   display: inline-block;
-  font-size: 24px;
+  font-size: 20px;
   border: 2px solid #fff;
-  padding: 14px 60px;
+  padding: 10px 60px;
   border-radius: 40px;
   margin-top: 2.1rem;
   opacity: 0.85;
+  color: aliceblue;
+  background-color: #6366f1;
 }
 .landingButton:hover {
   color: white;
@@ -41,6 +43,11 @@ video {
   bottom: 0;
   z-index: -1;
   object-fit: cover;
+}
+@media (min-width: 1536px) {
+  .landingTitle {
+    color: aliceblue;
+  }
 }
 @media (min-aspect-ratio: 16/9) {
   .backVideo {

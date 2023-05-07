@@ -3,7 +3,7 @@
   min-height: 50vh;
   background: linear-gradient(to bottom, #f7f7fe, #dff1ff);
   border-radius: 20px;
-  margin-top: 14.5rem;
+  margin: clamp(5rem, 3.2645rem + 9.2562vw, 12rem) 1rem;
 }
 
 .formContainer {

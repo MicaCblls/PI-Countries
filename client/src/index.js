@@ -10,7 +10,7 @@ import axios from "axios";
 
 const { REACT_APP_API } = process.env;
 
-axios.defaults.baseURL = REACT_APP_API || "http://localhost:3001";
+axios.defaults.baseURL = REACT_APP_API || "http://localhost:3000";
 
 ReactDOM.render(
   <Provider store={store}>

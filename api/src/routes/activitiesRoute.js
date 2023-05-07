@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { getTouristActivities } = require("../helpers/touristActivitiesData");
 const router = Router();
 
-/* router.post("", async (req, res) => {
+router.post("", async (req, res) => {
   try {
     let { name, difficulty, duration, season, countries } = req.body;
     if (!name || !difficulty || !duration || !season || !countries) {
@@ -30,7 +30,7 @@ const router = Router();
   } catch (error) {
     res.status(500).send(error.message);
   }
-}); */
+});
 
 router.get("", async (req, res) => {
   try {

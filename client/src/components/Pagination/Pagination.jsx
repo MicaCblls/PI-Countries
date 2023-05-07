@@ -6,7 +6,7 @@ export default function Pagination({
   currentPage,
   setCurrentPage,
 }) {
-  const maxNumbers = 10;
+  const maxNumbers = 3;
   let pages = [];
   //Filling array with pages numbers
   for (let i = 1; i <= totalPages; i++) {
@@ -31,30 +31,25 @@ export default function Pagination({
   return (
     <div className={styles.containerPagination}>
       {currentPage > 1 && (
-        <li className={styles.previous}>
-          <a href="#" onClick={() => paginate(-1)}>
-            Prev
-          </a>
-        </li>
+        <a href="#" onClick={() => paginate(-1)}>
+          <li className={styles.previous}>Prev</li>
+        </a>
       )}
       {pageNumbers().map((number) => (
-        <li
-          key={number}
-          className={
-            number === currentPage ? styles.active : styles.liContainer
-          }
-        >
-          <a href="#" onClick={() => setCurrentPage(number)}>
+        <a key={number} href="#" onClick={() => setCurrentPage(number)}>
+          <li
+            className={
+              number === currentPage ? styles.active : styles.liContainer
+            }
+          >
             {number}
-          </a>
-        </li>
+          </li>
+        </a>
       ))}
       {currentPage !== totalPages && (
-        <li className={styles.next}>
-          <a href="#" onClick={() => paginate(1)}>
-            Next
-          </a>
-        </li>
+        <a href="#" onClick={() => paginate(1)}>
+          <li className={styles.next}>Next</li>
+        </a>
       )}
     </div>
   );

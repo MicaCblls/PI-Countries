@@ -5,8 +5,8 @@ import styles from "./Home.module.css";
 export default function Home({ data }) {
   if (data.length) {
     return (
-      <div className={styles.countriesContainer}>
-        <div className={styles.cards}>
+      <div className="flex flex-col mt-28  items-center justify-center w-full flex-1">
+        <div className="flex flex-wrap gap-4 p-4 w-full justify-center">
           {data.map((country) => {
             return (
               <CountryCard
