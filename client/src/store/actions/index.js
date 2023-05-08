@@ -55,7 +55,7 @@ export const getCountriesOrdered = (order) => {
 
 export const createActivity = (values) => {
   return function (dispatch) {
-    axios.post("/activities", values).then(
+    axios.post("/create", values).then(
       (res) => dispatch({ type: CREATE, payload: res.data }),
       (error) => dispatch({ type: ERROR, payload: error.response.data })
     );
