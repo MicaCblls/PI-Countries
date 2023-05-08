@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createActivity, cleanError, cleanSuccess } from "../../store/actions";
+import {
+  createActivity,
+  cleanError,
+  cleanSuccess,
+  getActivities,
+} from "../../store/actions";
 import Success from "../Success/Success";
 import Button from "../Button/Button";
 import styles from "./CreateActivity.module.css";
@@ -88,6 +93,7 @@ export default function CreateActivity({ data }) {
   return (
     <>
       <NavLink
+        onClick={() => dispatch(getActivities())}
         to="/home"
         className="flex self-start items-center font-medium md:text-lg text-blue pt-6 w-full px-4 md:px-8"
       >

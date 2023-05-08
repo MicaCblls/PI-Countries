@@ -36,15 +36,15 @@ export default function CountryDetail({ handleClose, id }) {
               fontSize: " clamp(1rem, 0.876rem + 0.6612vw, 1.5rem)",
             }}
           >
-            <div className="bg-navBg px-2 py-2 rounded-t-lg flex flex-row-reverse justify-around">
+            <div className="bg-navBg px-2 py-2 rounded-t-lg flex flex-row-reverse justify-around items-start">
               <button
-                className=" transition duration-150 ease-in-out bg-white rounded-full ml-4 my-2 top-0 h-8 md:h-10"
+                className=" transition duration-150 ease-in-out bg-white rounded-full ml-4 my-2 h-6 md:h-fit"
                 onClick={handleClose}
               >
                 <img
                   src={closeIcon}
                   alt="Logo cerrar detalles"
-                  className="w-8 h-8 md:w-10 md:h-10"
+                  className="w-9 h-fit md:w-10 md:h-10"
                 />
               </button>
               <h2
@@ -59,22 +59,22 @@ export default function CountryDetail({ handleClose, id }) {
               </h2>
             </div>
             <div className="bg-white max-h-[450px] flex justify-start items-center overflow-y-auto flex-col text-ellipsis py-3 px-4 w-full md:p-6 md:max-h-[600px] rounded-b-xl">
-              <div className="flex flex-col md:flex-row justify-around items-center w-full">
-                <div>
+              <div className="flex flex-col md:flex-row justify-center md:justify-around items-center w-full">
+                <>
                   <img
                     src={countryDetail.flag}
                     alt={`Flag of ${countryDetail.name}`}
                     className="w-1/2"
                   />
-                </div>
-                <div>
+                </>
+                <>
                   <p>{countryDetail.id}</p>
                   <p>{countryDetail.continent}</p>
                   <p>{countryDetail.capital}</p>
                   <p>{countryDetail.subregion}</p>
                   <p>{countryDetail.area} km2</p>
                   <p>{countryDetail.population}</p>
-                </div>
+                </>
               </div>
               <div className="flex flex-col w-full items-center">
                 <h3 className="underline text-2xl py-2 px-6 flex self-start">
