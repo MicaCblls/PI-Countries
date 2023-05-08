@@ -44,7 +44,7 @@ export default function CountryDetail({ handleClose, id }) {
                 <img
                   src={closeIcon}
                   alt="Logo cerrar detalles"
-                  className="w-9 h-fit md:w-10 md:h-10"
+                  className="w-8 h-fit md:w-10 md:h-10"
                 />
               </button>
               <h2
@@ -59,32 +59,32 @@ export default function CountryDetail({ handleClose, id }) {
               </h2>
             </div>
             <div className="bg-white max-h-[450px] flex justify-start items-center overflow-y-auto flex-col text-ellipsis py-3 px-4 w-full md:p-6 md:max-h-[600px] rounded-b-xl">
-              <div className="flex flex-col md:flex-row justify-center md:justify-around items-center w-full">
-                <>
+              <div className="flex flex-col md:flex-row justify-start items-center w-full max-h-64">
+                <div className="flex w-full h-1/3 self-start md:w-auto md:h-auto">
                   <img
                     src={countryDetail.flag}
                     alt={`Flag of ${countryDetail.name}`}
-                    className="w-1/2"
+                    className="w-full object-contain aspect-auto"
                   />
-                </>
-                <>
+                </div>
+                <div className="flex flex-col self-center w-full md:self-end md:w-1/2 text-center pt-2">
                   <p>{countryDetail.id}</p>
                   <p>{countryDetail.continent}</p>
                   <p>{countryDetail.capital}</p>
                   <p>{countryDetail.subregion}</p>
                   <p>{countryDetail.area} km2</p>
                   <p>{countryDetail.population}</p>
-                </>
+                </div>
               </div>
-              <div className="flex flex-col w-full items-center">
-                <h3 className="underline text-2xl py-2 px-6 flex self-start">
+              <div className="flex flex-col w-full justify-start items-start px-6">
+                <h3 className="underline text-2xl py-2  flex self-start">
                   Tourist activity:
                 </h3>
                 {countryDetail.touristActivities?.length ? (
                   countryDetail.touristActivities.map((e) => {
                     return (
                       <ul
-                        className="no-underline text-base flex flex-col justify-start items-start"
+                        className="no-underline text-base flex flex-col justify-start items-start w-1/3"
                         key={e.id}
                       >
                         <li>{e.name}</li>
